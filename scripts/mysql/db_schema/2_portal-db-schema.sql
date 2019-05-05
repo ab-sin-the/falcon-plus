@@ -4,6 +4,7 @@ CREATE DATABASE falcon_portal
 USE falcon_portal;
 SET NAMES utf8;
 
+
 /**
  * 这里的机器是从机器管理系统中同步过来的
  * 系统拿出来单独部署需要为hbs增加功能，心跳上来的机器写入host表
@@ -210,6 +211,43 @@ CREATE TABLE `cluster` (
   ENGINE =InnoDB
   DEFAULT CHARSET=utf8
   COLLATE=utf8_unicode_ci;
+
+/**
+ * record file_path user has input
+ */
+DROP TABLE IF EXISTS filepath_record;
+CREATE TABLE `filepath_record` (
+  `id`       INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(64)  NOT NULL DEFAULT '',
+  `path1` VARCHAR(255) NOT NULL DEFAULT '',
+  `path2` VARCHAR(255) NOT NULL DEFAULT '',
+  `path3` VARCHAR(255) NOT NULL DEFAULT '',
+  `path4` VARCHAR(255) NOT NULL DEFAULT '',
+  `path5` VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8
+  COLLATE =utf8_unicode_ci;
+
+
+/**
+ * record command_line_option user has input
+ */
+DROP TABLE IF EXISTS command_record;
+CREATE TABLE `command_record` (
+  `id`       INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(64)  NOT NULL DEFAULT '',
+  `command1` VARCHAR(255) NOT NULL DEFAULT '',
+  `command2` VARCHAR(255) NOT NULL DEFAULT '',
+  `command3` VARCHAR(255) NOT NULL DEFAULT '',
+  `command4` VARCHAR(255) NOT NULL DEFAULT '',
+  `command5` VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8
+  COLLATE =utf8_unicode_ci;
 
 /**
  * alert links

@@ -27,7 +27,6 @@ CREATE TABLE host
   DEFAULT CHARSET =utf8
   COLLATE =utf8_unicode_ci;
 
-
 /**
  * 机器分组信息
  * come_from 0: 从机器管理同步过来的；1: 从页面创建的
@@ -248,6 +247,27 @@ CREATE TABLE `command_record` (
   ENGINE =InnoDB
   DEFAULT CHARSET =utf8
   COLLATE =utf8_unicode_ci;
+
+
+/**
+ * record top5 processes
+ */
+DROP TABLE IF EXISTS top_proc;
+CREATE TABLE `top_proc` (
+  `id`        INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `rank`      INT UNSIGNED NOT NULL,
+  `procname`  VARCHAR(64)  NOT NULL DEFAULT '',
+  `pid`       VARCHAR(64)  NOT NULL DEFAULT '',
+  `user`      VARCHAR(64)  NOT NULL DEFAULT '',
+  `cpu_usage` VARCHAR(64)  NOT NULL DEFAULT '',
+  `mem_usage` VARCHAR(64)  NOT NULL DEFAULT '',
+  `datatime`  VARCHAR(64)  NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8
+  COLLATE =utf8_unicode_ci;
+
 
 /**
  * alert links
